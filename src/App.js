@@ -9,8 +9,11 @@ export default function App() {
         for (let i = 0; i < 10; i++) {
             newDice.push(Math.floor(Math.random() * 6) + 1)
         }
-
         return newDice
+    }
+
+    function handleClick() {
+        setDice(allNewDice());
     }
 
     const diceElements = dice.map((dice, index) => <Die key={index} value={dice}/>)
@@ -20,6 +23,7 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
+            <button className={"roll-dice"} onClick={handleClick}>Roll </button>
         </main>
     )
 }
