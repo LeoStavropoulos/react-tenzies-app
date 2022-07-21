@@ -1,0 +1,75 @@
+.die-face {
+    height: 50px;
+    width: 50px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 2px;
+    cursor: pointer;
+}
+
+.dot {
+    background-color: #000;
+    border-radius: 50%;
+    border: 1px inset white;
+    width: 12px;
+    height: 12px;
+    place-self: center;
+}
+
+.dot-11 {
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+
+.dot-12 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+}
+
+.dot-13 {
+    grid-row-start: 3;
+    grid-column-start: 3;
+}
+
+.dot-14 {
+    grid-row-start: 3;
+    grid-column-start: 1;
+}
+
+.dot-15 {
+    grid-row-start: 1;
+    grid-column-start: 3;
+}
+
+.dot-01 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+}
+
+.dot-02 {
+    grid-row-start: 3;
+    grid-column-start: 3;
+}
+
+.dot-03 {
+    grid-row-start: 3;
+    grid-column-start: 1;
+}
+
+.dot-04 {
+    grid-row-start: 1;
+    grid-column-start: 3;
+}
+
+.dot-05 {
+    grid-row-start: 2;
+    grid-column-start: 1;
+}
+
+.dot-06 {
+    grid-row-start: 2;
+    grid-column-start: 3;
+}
