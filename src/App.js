@@ -5,6 +5,7 @@ import Confetti from "react-confetti";
 export default function App() {
     const [dice, setDice] = React.useState(allNewDice())
     const [tenzies, setTenzies] = React.useState(false)
+    const [count, setCount] = React.useState(0)
 
 
     React.useEffect(()=>{
@@ -27,9 +28,11 @@ export default function App() {
         if (tenzies) {
             setDice(allNewDice)
             setTenzies(false)
+            setCount(0)
             return
         }
         setDice(oldDice => oldDice.map(die => die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6) + 1}));
+        setCount(oldCount => oldCount + 1)
     }
 
     function holdDice(id) {
@@ -41,7 +44,10 @@ export default function App() {
     return(
         <main>
             {tenzies && <Confetti />}
-            <h1 className={"title"}>Tenzies</h1>
+            <div className="header">
+                <h1 className={"title"}>Tenzies</h1>
+                <h3 className="count">{count}</h3>
+            </div>
             <p className={"instructions"}>Rolls until all dice are the same. Click each die to freeze
             it at its current value between rolls.</p>
             <div className="dice-container">

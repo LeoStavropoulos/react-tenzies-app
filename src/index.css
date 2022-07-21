@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Karla:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * {
   box-sizing: border-box;
@@ -28,9 +29,30 @@ main {
   margin: auto;
 }
 
+.header {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #5035ff;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title {
+  margin-block: 0;
+  margin-left: 40%;
   font-size: 40px;
-  margin: 0;
 }
 
 .instructions {
@@ -71,5 +93,10 @@ main {
 
   .dice-container {
     grid-template: auto auto / repeat(2, 1fr);
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-left: 25%;
   }
 }
