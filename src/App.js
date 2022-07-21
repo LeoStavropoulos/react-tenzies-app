@@ -1,11 +1,14 @@
 import React from "react";
 import Die from "./components/Die";
 import Confetti from "react-confetti";
+import Timer from "./components/Timer";
 
 export default function App() {
     const [dice, setDice] = React.useState(allNewDice())
     const [tenzies, setTenzies] = React.useState(false)
     const [count, setCount] = React.useState(0)
+    const [time, setTime] = React.useState(0)
+    const [isActive, setIsActive] = React.useState(false)
 
 
     React.useEffect(()=>{
@@ -14,7 +17,16 @@ export default function App() {
             if (!dice[i].isHeld || dice[i].value !== dice[i - 1].value) return
         }
         setTenzies(true)
+        setIsActive(false)
     }, [dice])
+
+    React.useEffect(() => {
+        let interval;
+
+        isActive ? interval = setInterval(() => setTime(prevTime => prevTime + 10), 10) : clearInterval(interval)
+
+        return () => clearInterval(interval)
+    }, [isActive])
 
     function allNewDice() {
         const newDice = []
@@ -29,8 +41,10 @@ export default function App() {
             setDice(allNewDice)
             setTenzies(false)
             setCount(0)
+            setTime(0)
             return
         }
+        setIsActive(true)
         setDice(oldDice => oldDice.map(die => die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6) + 1}));
         setCount(oldCount => oldCount + 1)
     }
@@ -45,6 +59,7 @@ export default function App() {
         <main>
             {tenzies && <Confetti />}
             <div className="header">
+                <Timer time={time}/>
                 <h1 className={"title"}>Tenzies</h1>
                 <h3 className="count">{count}</h3>
             </div>
