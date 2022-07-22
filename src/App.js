@@ -18,6 +18,16 @@ export default function App() {
         }
         setTenzies(true)
         setIsActive(false)
+
+        if(!localStorage.getItem("tenzies-time-record") || parseInt(localStorage.getItem("tenzies-time-record")) > time) {
+            localStorage.setItem("tenzies-time-record", time.toString())
+        }
+
+        if(!localStorage.getItem("tenzies-rounds-record") || parseInt(localStorage.getItem("tenzies-rounds-record")) > count) {
+            console.log(parseInt(localStorage.getItem("tenzies-rounds-record")) > count)
+            localStorage.setItem("tenzies-rounds-record", count.toString())
+        }
+
     }, [dice])
 
     React.useEffect(() => {
