@@ -9,6 +9,7 @@ export default function App() {
     const [count, setCount] = React.useState(0)
     const [time, setTime] = React.useState(0)
     const [isActive, setIsActive] = React.useState(false)
+    const [highScore, setHighScore] = React.useState({})
 
 
     React.useEffect(()=>{
@@ -21,13 +22,15 @@ export default function App() {
 
         if(!localStorage.getItem("tenzies-time-record") || parseInt(localStorage.getItem("tenzies-time-record")) > time) {
             localStorage.setItem("tenzies-time-record", time.toString())
+            setHighScore({"time": time})
         }
 
         if(!localStorage.getItem("tenzies-rounds-record") || parseInt(localStorage.getItem("tenzies-rounds-record")) > count) {
             console.log(parseInt(localStorage.getItem("tenzies-rounds-record")) > count)
             localStorage.setItem("tenzies-rounds-record", count.toString())
+            setHighScore({"rounds": count})
         }
-
+    // eslint-disable-next-line
     }, [dice])
 
     React.useEffect(() => {
@@ -52,6 +55,7 @@ export default function App() {
             setTenzies(false)
             setCount(0)
             setTime(0)
+            setHighScore({})
             return
         }
         setIsActive(true)
@@ -68,6 +72,12 @@ export default function App() {
     return(
         <main>
             {tenzies && <Confetti />}
+            <div className="high-score">
+                <div className="scroll-text">
+                    {highScore.time && <span>New record: {time} seconds!</span>}
+                    {highScore.rounds && <span>New record: {count} rounds!</span>}
+                </div>
+            </div>
             <div className="header">
                 <Timer time={time}/>
                 <h1 className={"title"}>Tenzies</h1>

@@ -29,6 +29,27 @@ main {
   margin: auto;
 }
 
+.high-score {
+  overflow: hidden;
+  height: 2rem;
+  width: 90%;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.scroll-text{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+
+  -moz-animation: scroll-text-animation 10s linear infinite;
+  -webkit-animation: scroll-text-animation 10s linear infinite;
+  animation: scroll-text-animation 10s linear infinite;
+}
+
 .header {
   margin: 0 auto;
   width: 90%;
@@ -111,5 +132,31 @@ main {
 
   .instructions {
     font-size: 0.9rem;
+  }
+}
+
+
+/* Animations */
+
+@-moz-keyframes scroll-text-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+@-webkit-keyframes scroll-text-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes scroll-text-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
