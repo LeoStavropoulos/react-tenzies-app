@@ -46,3 +46,10 @@ Open a terminal inside app's directory and run:
 
 By default, a browser window should pop, with the app running in
 `localhost:3000`
+
+## References
+- Fonts: [Google Fonts](https://fonts.google.com/)
+- Logo: [Ucraft](https://www.ucraft.com/)
+- App Icons: [RealFaviconGenerator](https://realfavicongenerator.net/)
+- Splash Screen Icons: [AppScope](https://appsco.pe/)
+- README Icons: [Skill Icons](https://skillicons.dev/)
